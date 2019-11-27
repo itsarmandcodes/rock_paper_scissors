@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    console.log("Hello, World!")
+
+
+    function game(){
+
+    let user_score = 0;
+    let pc_score = 0;
+
+    while(user_score < 3 && pc_score < 3){
+
+    let user_throw = prompt("Rock, Paper, or Scissors?").toLowerCase();
+
+    while (["rock", "paper", "scissors"].indexOf(user_throw) === -1) {
+    user_throw = prompt("Please choose: rock, paper, scissors").toLowerCase();
+    } 
+
+    let pc_throw;
+
+    function getRandomInt(){
+      pc_throw = Math.floor(Math.random() * Math.floor(3));
+      return pc_throw;
+
+    }
+
+    getRandomInt()
+
+    switch(user_throw){
+      case "rock":
+      user_throw = 0;
+        break;
+      case "paper":
+      user_throw = 1
+        break;
+      case "scissors":
+      user_throw = 2;
+        break;
+    }
+
+
+    console.log(user_throw)
+    console.log(pc_throw)
+
+    if(user_throw == pc_throw){
+      switch(user_throw){
+        case 0:
+        console.log("You tied with Rock vs Rock!")
+        console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+          break;
+        case 1:
+        console.log("You tied with Paper vs Paper!")
+        console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+          break;
+        case 2:
+        console.log("You tied with Scissors vs Scissors!")
+        console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+          break;
+      }
+    }else if(user_throw == 2 || pc_throw == 2){
+      if(user_throw == 2){
+        if(pc_throw == 1){
+          console.log("You win with Scissors vs Paper!")
+          user_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+        }else{
+          console.log("Oh no, you lost with against Rock with Scissors!")
+          pc_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+        }
+        console.log()
+      }else if(pc_throw == 2){
+        if(user_throw == 1){
+          console.log("You lose with Paper vs Scissors!")
+          pc_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+        }else{
+          console.log("You win with Rock vs Scissors!")
+          user_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+      }
+      }
+    }else if(user_throw == 1 || pc_throw == 1){
+      if(user_throw == 1){
+          console.log("You win with Paper vs Rock!")
+          user_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+
+      }else{
+          console.log("You lose with Rock vs Paper!")
+          pc_score += 1;
+          console.log("The Current score is: You - " + user_score +", PC - "+ pc_score +"!")
+    }
+    }
+    }
+      if(user_score == 3){
+        console.log("You win!")
+      }else{
+        console.log("You lose!")
+      }
+    }
+
+
+
+
+  </script>
+  <p> Open Console to play Rock, Paper, Scissors. Type game() when you want to start!</p>
+</body>
+</html>
